@@ -1,0 +1,349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2AC1F944756009AE74A /* AppDelegate.swift */; };
+		DBFAE2AF1F944756009AE74A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2AE1F944756009AE74A /* art.scnassets */; };
+		DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */; };
+		DBFAE2B41F944756009AE74A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B21F944756009AE74A /* Main.storyboard */; };
+		DBFAE2B61F944756009AE74A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B51F944756009AE74A /* Assets.xcassets */; };
+		DBFAE2B91F944756009AE74A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B71F944756009AE74A /* LaunchScreen.storyboard */; };
+		DBFAE2C11F944AA7009AE74A /* BattleArea.scn in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2C01F944AA7009AE74A /* BattleArea.scn */; };
+		DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C31F945078009AE74A /* GameConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DBFAE2A91F944756009AE74A /* SmashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBFAE2AC1F944756009AE74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DBFAE2AE1F944756009AE74A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBoxArenaViewController.swift; sourceTree = "<group>"; };
+		DBFAE2B31F944756009AE74A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DBFAE2B51F944756009AE74A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBFAE2B81F944756009AE74A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBFAE2BA1F944756009AE74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBFAE2C01F944AA7009AE74A /* BattleArea.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BattleArea.scn; sourceTree = "<group>"; };
+		DBFAE2C31F945078009AE74A /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBFAE2A61F944756009AE74A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DBFAE2A01F944756009AE74A = {
+			isa = PBXGroup;
+			children = (
+				DBFAE2AB1F944756009AE74A /* SmashBox */,
+				DBFAE2AA1F944756009AE74A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DBFAE2AA1F944756009AE74A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAE2A91F944756009AE74A /* SmashBox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBFAE2AB1F944756009AE74A /* SmashBox */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAE2AC1F944756009AE74A /* AppDelegate.swift */,
+				DBFAE2C31F945078009AE74A /* GameConstants.swift */,
+				DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */,
+				DBFAE2C21F94502E009AE74A /* Supporting Files */,
+			);
+			path = SmashBox;
+			sourceTree = "<group>";
+		};
+		DBFAE2C21F94502E009AE74A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DBFAE2AE1F944756009AE74A /* art.scnassets */,
+				DBFAE2C01F944AA7009AE74A /* BattleArea.scn */,
+				DBFAE2BA1F944756009AE74A /* Info.plist */,
+				DBFAE2B21F944756009AE74A /* Main.storyboard */,
+				DBFAE2B51F944756009AE74A /* Assets.xcassets */,
+				DBFAE2B71F944756009AE74A /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBFAE2A81F944756009AE74A /* SmashBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBFAE2BD1F944756009AE74A /* Build configuration list for PBXNativeTarget "SmashBox" */;
+			buildPhases = (
+				DBFAE2A51F944756009AE74A /* Sources */,
+				DBFAE2A61F944756009AE74A /* Frameworks */,
+				DBFAE2A71F944756009AE74A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmashBox;
+			productName = SmashBox;
+			productReference = DBFAE2A91F944756009AE74A /* SmashBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBFAE2A11F944756009AE74A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Hanzhou Shi";
+				TargetAttributes = {
+					DBFAE2A81F944756009AE74A = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DBFAE2A41F944756009AE74A /* Build configuration list for PBXProject "SmashBox" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBFAE2A01F944756009AE74A;
+			productRefGroup = DBFAE2AA1F944756009AE74A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBFAE2A81F944756009AE74A /* SmashBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBFAE2A71F944756009AE74A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBFAE2C11F944AA7009AE74A /* BattleArea.scn in Resources */,
+				DBFAE2AF1F944756009AE74A /* art.scnassets in Resources */,
+				DBFAE2B91F944756009AE74A /* LaunchScreen.storyboard in Resources */,
+				DBFAE2B61F944756009AE74A /* Assets.xcassets in Resources */,
+				DBFAE2B41F944756009AE74A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBFAE2A51F944756009AE74A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */,
+				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
+				DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DBFAE2B21F944756009AE74A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBFAE2B31F944756009AE74A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DBFAE2B71F944756009AE74A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBFAE2B81F944756009AE74A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DBFAE2BB1F944756009AE74A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBFAE2BC1F944756009AE74A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBFAE2BE1F944756009AE74A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 687GE6J6LA;
+				INFOPLIST_FILE = "$(SRCROOT)/SmashBox/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hanjoes.SmashBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBFAE2BF1F944756009AE74A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 687GE6J6LA;
+				INFOPLIST_FILE = "$(SRCROOT)/SmashBox/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hanjoes.SmashBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBFAE2A41F944756009AE74A /* Build configuration list for PBXProject "SmashBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBFAE2BB1F944756009AE74A /* Debug */,
+				DBFAE2BC1F944756009AE74A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBFAE2BD1F944756009AE74A /* Build configuration list for PBXNativeTarget "SmashBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBFAE2BE1F944756009AE74A /* Debug */,
+				DBFAE2BF1F944756009AE74A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DBFAE2A11F944756009AE74A /* Project object */;
+}
