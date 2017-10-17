@@ -2,15 +2,18 @@ import UIKit
 import QuartzCore
 import SceneKit
 
+struct SmashCategory {
+    static let floor = 0b00000001
+}
+
 
 class SmashBoxArenaViewController: UIViewController {
-    
-    var player: SCNNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializeScene()
+        initializeGestures()
     }
     
     override var shouldAutorotate: Bool {
@@ -34,13 +37,53 @@ class SmashBoxArenaViewController: UIViewController {
 
 private extension SmashBoxArenaViewController {
     
-    func initializeScene() {
-        let scene = SCNScene(named: Constants.BattleAreaSceneName)!
-        let view = self.view as! SCNView
-        view.scene = scene
-        view.backgroundColor = .purple
-        
-        view.allowsCameraControl = true
+    var sceneView: SCNView! {
+        return self.view as! SCNView
     }
     
+    var arenaFloor: SCNNode! {
+        return scene.rootNode.childNode(withName: Constants.BattleAreaFloorName, recursively: true)
+    }
+    
+    var player: SCNNode! {
+        return scene.rootNode.childNode(withName: Constants.PlayerName, recursively: true)
+    }
+    
+    var scene: SCNScene! {
+        return sceneView.scene
+    }
+    
+    func initializeScene() {
+        sceneView.scene = SCNScene(named: Constants.BattleAreaSceneName)
+        sceneView.backgroundColor = .purple
+        sceneView.allowsCameraControl = true
+        sceneView.isPlaying = true
+    }
+    
+    func initializeGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        sceneView.addGestureRecognizer(tapGesture)
+    }
+    
+}
+
+private extension SmashBoxArenaViewController {
+    @objc
+    func handleTap(_ gestureRecognized: UIGestureRecognizer) {
+        switch gestureRecognized.state {
+        case .ended:
+            let location = gestureRecognized.location(in: sceneView)
+            let hits = sceneView.hitTest(location, options: [SCNHitTestOption.firstFoundOnly: ()])
+            guard let hit = hits.first, hit.node.name == Constants.BattleAreaFloorName else {
+                return
+            }
+            
+            let hitCoord = hit.localCoordinates
+            let playerCoord = player.position
+            let translation = hitCoord - playerCoord
+            let translationHorizontal = SCNVector3(x: translation.x, y: 0, z: translation.z)
+            player.physicsBody?.applyForce(translationHorizontal, asImpulse: false)
+        default: break
+        }
+    }
 }
