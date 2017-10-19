@@ -9,5 +9,5 @@ struct Constants {
     
     static let BattleAreaFloorName = "arena_floor"
     static let PlayerName = "player"
-
+    static let SpawnPointName = "spawn_point"
 }

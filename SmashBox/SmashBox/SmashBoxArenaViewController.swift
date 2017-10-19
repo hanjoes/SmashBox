@@ -10,6 +10,7 @@ class SmashBoxArenaViewController: UIViewController {
         
         initializeScene()
         initializeGestures()
+        spawnPlayer()
     }
     
     override var shouldAutorotate: Bool {
@@ -49,6 +50,17 @@ private extension SmashBoxArenaViewController {
         return sceneView.scene
     }
     
+    var spawnPoints: [SCNNode] {
+        let children = scene.rootNode.childNodes
+        var spawnPoints = [SCNNode]()
+        for child in children {
+            if child.name! == Constants.SpawnPointName {
+                spawnPoints.append(child)
+            }
+        }
+        return spawnPoints
+    }
+    
     func initializeScene() {
         sceneView.scene = SCNScene(named: Constants.BattleAreaSceneName)
         sceneView.backgroundColor = .purple
@@ -61,6 +73,12 @@ private extension SmashBoxArenaViewController {
         sceneView.addGestureRecognizer(tapGesture)
     }
     
+    func spawnPlayer() {
+        let numSpawnPoints = spawnPoints.count
+        let randIndex = Int(arc4random() % UInt32(numSpawnPoints))
+        let spawnPointChosen = spawnPoints[randIndex]
+        player.position = spawnPointChosen.position
+    }
 }
 
 // MARK: - Gesture Handlers
