@@ -2,10 +2,6 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-struct SmashCategory {
-    static let floor = 0b00000001
-}
-
 
 class SmashBoxArenaViewController: UIViewController {
     
@@ -67,6 +63,8 @@ private extension SmashBoxArenaViewController {
     
 }
 
+// MARK: - Gesture Handlers
+
 private extension SmashBoxArenaViewController {
     @objc
     func handleTap(_ gestureRecognized: UIGestureRecognizer) {
@@ -79,10 +77,11 @@ private extension SmashBoxArenaViewController {
             }
             
             let hitCoord = hit.localCoordinates
-            let playerCoord = player.position
-            let translation = hitCoord - playerCoord
+            let playerCoord = player.presentation.position
+            let translation = (hitCoord - playerCoord) * 0.5
+            
             let translationHorizontal = SCNVector3(x: translation.x, y: 0, z: translation.z)
-            player.physicsBody?.applyForce(translationHorizontal, asImpulse: false)
+            player.physicsBody?.applyForce(translationHorizontal, asImpulse: true)
         default: break
         }
     }
