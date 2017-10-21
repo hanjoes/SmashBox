@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB55F7081F9B139100606A4C /* BoxEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* BoxEntity.swift */; };
+		DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */; };
+		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
+		DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */; };
+		DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */; };
 		DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2AC1F944756009AE74A /* AppDelegate.swift */; };
 		DBFAE2AF1F944756009AE74A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2AE1F944756009AE74A /* art.scnassets */; };
 		DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB55F7071F9B139100606A4C /* BoxEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxEntity.swift; sourceTree = "<group>"; };
+		DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
+		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
+		DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionComponent.swift; sourceTree = "<group>"; };
+		DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGestureComponent.swift; sourceTree = "<group>"; };
 		DBFAE2A91F944756009AE74A /* SmashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFAE2AC1F944756009AE74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBFAE2AE1F944756009AE74A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -43,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB55F7061F9B137600606A4C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DB55F7071F9B139100606A4C /* BoxEntity.swift */,
+				DB55F70C1F9B149F00606A4C /* GameEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DB55F7091F9B13AA00606A4C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */,
+				DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */,
+				DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DBFAE2A01F944756009AE74A = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +91,8 @@
 		DBFAE2AB1F944756009AE74A /* SmashBox */ = {
 			isa = PBXGroup;
 			children = (
+				DB55F7091F9B13AA00606A4C /* Components */,
+				DB55F7061F9B137600606A4C /* Entities */,
 				DBFAE2AC1F944756009AE74A /* AppDelegate.swift */,
 				DBFAE2C31F945078009AE74A /* GameConstants.swift */,
 				DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */,
@@ -158,9 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */,
 				DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */,
+				DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */,
 				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
+				DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */,
+				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
 				DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */,
+				DB55F7081F9B139100606A4C /* BoxEntity.swift in Sources */,
 				DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,11 +5,12 @@ import SceneKit
 
 class SmashBoxArenaViewController: UIViewController {
     
+    var boxEntity: BoxEntity!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializeScene()
-        initializeGestures()
         spawnPlayer()
     }
     
@@ -33,7 +34,7 @@ class SmashBoxArenaViewController: UIViewController {
 // MARK: - Helper Methods
 
 private extension SmashBoxArenaViewController {
-    
+
     var sceneView: SCNView! {
         return self.view as! SCNView
     }
@@ -68,39 +69,16 @@ private extension SmashBoxArenaViewController {
         sceneView.isPlaying = true
     }
     
-    func initializeGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        sceneView.addGestureRecognizer(tapGesture)
-    }
-    
     func spawnPlayer() {
         let numSpawnPoints = spawnPoints.count
         let randIndex = Int(arc4random() % UInt32(numSpawnPoints))
         let spawnPointChosen = spawnPoints[randIndex]
+        
         player.position = spawnPointChosen.position
+        let scnNodeComponent = SCNNodeComponent(withNode: player)
+        let userGestureComponent = UserGestureComponent(scnNodeComponent: scnNodeComponent)
+        boxEntity = BoxEntity(components: [scnNodeComponent, userGestureComponent], sceneView: sceneView)
+        userGestureComponent.initializeGestures()
     }
 }
 
-// MARK: - Gesture Handlers
-
-private extension SmashBoxArenaViewController {
-    @objc
-    func handleTap(_ gestureRecognized: UIGestureRecognizer) {
-        switch gestureRecognized.state {
-        case .ended:
-            let location = gestureRecognized.location(in: sceneView)
-            let hits = sceneView.hitTest(location, options: [SCNHitTestOption.firstFoundOnly: ()])
-            guard let hit = hits.first, hit.node.name == Constants.BattleAreaFloorName else {
-                return
-            }
-            
-            let hitCoord = hit.localCoordinates
-            let playerCoord = player.presentation.position
-            let translation = (hitCoord - playerCoord) * 0.5
-            
-            let translationHorizontal = SCNVector3(x: translation.x, y: 0, z: translation.z)
-            player.physicsBody?.applyForce(translationHorizontal, asImpulse: true)
-        default: break
-        }
-    }
-}
