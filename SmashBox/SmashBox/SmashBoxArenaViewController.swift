@@ -5,13 +5,14 @@ import SceneKit
 
 class SmashBoxArenaViewController: UIViewController {
     
-    var boxEntity: BoxEntity!
+    var players = [PlayerEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initializeScene()
         spawnPlayer()
+        takeControl(ofPlayer: 0)
     }
     
     override var shouldAutorotate: Bool {
@@ -43,10 +44,6 @@ private extension SmashBoxArenaViewController {
         return scene.rootNode.childNode(withName: Constants.BattleAreaFloorName, recursively: true)
     }
     
-    var player: SCNNode! {
-        return scene.rootNode.childNode(withName: Constants.PlayerName, recursively: true)
-    }
-    
     var scene: SCNScene! {
         return sceneView.scene
     }
@@ -74,10 +71,34 @@ private extension SmashBoxArenaViewController {
         let randIndex = Int(arc4random() % UInt32(numSpawnPoints))
         let spawnPointChosen = spawnPoints[randIndex]
         
+        let box = SCNBox(width: 3, height: 3, length: 3, chamferRadius: 0.3)
+        let player = SCNNode(geometry: box)
+        player.name = "\(Constants.PlayerName)_\(players.count + 1)"
         player.position = spawnPointChosen.position
+        player.physicsBody = SCNPhysicsBody.dynamic()
+        
+        let playerLight = SCNNode()
+        playerLight.light = SCNLight()
+        playerLight.light?.type = .spot
+        playerLight.position = SCNVector3(x: 0, y: 10, z: 0)
+        playerLight.eulerAngles = SCNVector3(x: -Float(Double.pi / 2), y: 0, z: 0)
+        player.addChildNode(playerLight)
+
+        scene.rootNode.addChildNode(player)
+        
         let scnNodeComponent = SCNNodeComponent(withNode: player)
-        let userGestureComponent = UserGestureComponent(scnNodeComponent: scnNodeComponent)
-        boxEntity = BoxEntity(components: [scnNodeComponent, userGestureComponent], sceneView: sceneView)
+        let playerEntity = PlayerEntity(components: [scnNodeComponent], sceneView: sceneView)
+        players.append(playerEntity)
+    }
+    
+    func takeControl(ofPlayer index: Int) {
+        guard players.count >= index else {
+            return
+        }
+        
+        let player = players[index]
+        let userGestureComponent = UserGestureComponent(scnNodeComponent: player.sceneNodeComponent)
+        player.addComponent(userGestureComponent)
         userGestureComponent.initializeGestures()
     }
 }

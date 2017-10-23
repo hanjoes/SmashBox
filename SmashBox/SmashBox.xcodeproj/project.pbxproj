@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB55F7081F9B139100606A4C /* BoxEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* BoxEntity.swift */; };
+		DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* PlayerEntity.swift */; };
 		DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */; };
 		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
 		DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DB55F7071F9B139100606A4C /* BoxEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxEntity.swift; sourceTree = "<group>"; };
+		DB55F7071F9B139100606A4C /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionComponent.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		DB55F7061F9B137600606A4C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DB55F7071F9B139100606A4C /* BoxEntity.swift */,
+				DB55F7071F9B139100606A4C /* PlayerEntity.swift */,
 				DB55F70C1F9B149F00606A4C /* GameEntity.swift */,
 			);
 			path = Entities;
@@ -196,7 +196,7 @@
 				DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */,
 				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
 				DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */,
-				DB55F7081F9B139100606A4C /* BoxEntity.swift in Sources */,
+				DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */,
 				DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
