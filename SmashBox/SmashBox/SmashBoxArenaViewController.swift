@@ -76,6 +76,7 @@ private extension SmashBoxArenaViewController {
         player.name = "\(Constants.PlayerName)_\(players.count + 1)"
         player.position = spawnPointChosen.position
         player.physicsBody = SCNPhysicsBody.dynamic()
+        player.physicsBody?.isAffectedByGravity = true
         
         let playerLight = SCNNode()
         playerLight.light = SCNLight()
