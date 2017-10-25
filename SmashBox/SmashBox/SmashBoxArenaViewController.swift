@@ -7,8 +7,13 @@ class SmashBoxArenaViewController: UIViewController {
     
     var players = [PlayerEntity]()
     
+    var communicationCenter: CommunicationCenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        communicationCenter = CommunicationCenter()
+        communicationCenter.start()
         
         initializeScene()
         spawnPlayer()

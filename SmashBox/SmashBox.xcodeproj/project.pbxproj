@@ -12,6 +12,7 @@
 		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
 		DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */; };
 		DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */; };
+		DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */; };
 		DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2AC1F944756009AE74A /* AppDelegate.swift */; };
 		DBFAE2AF1F944756009AE74A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2AE1F944756009AE74A /* art.scnassets */; };
 		DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */; };
@@ -19,7 +20,7 @@
 		DBFAE2B61F944756009AE74A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B51F944756009AE74A /* Assets.xcassets */; };
 		DBFAE2B91F944756009AE74A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B71F944756009AE74A /* LaunchScreen.storyboard */; };
 		DBFAE2C11F944AA7009AE74A /* BattleArea.scn in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2C01F944AA7009AE74A /* BattleArea.scn */; };
-		DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C31F945078009AE74A /* GameConstants.swift */; };
+		DBFAE2C41F945078009AE74A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C31F945078009AE74A /* Constants.swift */; };
 		DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
 		DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionComponent.swift; sourceTree = "<group>"; };
 		DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGestureComponent.swift; sourceTree = "<group>"; };
+		DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationCenter.swift; sourceTree = "<group>"; };
 		DBFAE2A91F944756009AE74A /* SmashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFAE2AC1F944756009AE74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBFAE2AE1F944756009AE74A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -38,7 +40,7 @@
 		DBFAE2B81F944756009AE74A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBFAE2BA1F944756009AE74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBFAE2C01F944AA7009AE74A /* BattleArea.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BattleArea.scn; sourceTree = "<group>"; };
-		DBFAE2C31F945078009AE74A /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+		DBFAE2C31F945078009AE74A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVectorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		DB55F7151F9F08DB00606A4C /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */,
+			);
+			path = Multiplayer;
+			sourceTree = "<group>";
+		};
 		DBFAE2A01F944756009AE74A = {
 			isa = PBXGroup;
 			children = (
@@ -91,10 +101,11 @@
 		DBFAE2AB1F944756009AE74A /* SmashBox */ = {
 			isa = PBXGroup;
 			children = (
+				DB55F7151F9F08DB00606A4C /* Multiplayer */,
 				DB55F7091F9B13AA00606A4C /* Components */,
 				DB55F7061F9B137600606A4C /* Entities */,
 				DBFAE2AC1F944756009AE74A /* AppDelegate.swift */,
-				DBFAE2C31F945078009AE74A /* GameConstants.swift */,
+				DBFAE2C31F945078009AE74A /* Constants.swift */,
 				DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */,
 				DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */,
 				DBFAE2C21F94502E009AE74A /* Supporting Files */,
@@ -195,8 +206,9 @@
 				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
 				DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */,
 				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
-				DBFAE2C41F945078009AE74A /* GameConstants.swift in Sources */,
+				DBFAE2C41F945078009AE74A /* Constants.swift in Sources */,
 				DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */,
+				DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */,
 				DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
