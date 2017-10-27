@@ -66,6 +66,7 @@ private extension SmashBoxArenaViewController {
     
     func initializeScene() {
         sceneView.scene = SCNScene(named: Constants.BattleAreaSceneName)
+        scene.background.contents = UIColor.clear
         sceneView.backgroundColor = .purple
         sceneView.allowsCameraControl = true
         sceneView.isPlaying = true

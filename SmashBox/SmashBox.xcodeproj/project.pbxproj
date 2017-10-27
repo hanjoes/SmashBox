@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB51B0BF1FA2F81500CCC02E /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0BE1FA2F81500CCC02E /* Mutex.swift */; };
 		DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* PlayerEntity.swift */; };
 		DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */; };
 		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB51B0BE1FA2F81500CCC02E /* Mutex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
 		DB55F7071F9B139100606A4C /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB51B0BD1FA2F80900CCC02E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DB51B0BE1FA2F81500CCC02E /* Mutex.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		DB55F7061F9B137600606A4C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		DBFAE2AB1F944756009AE74A /* SmashBox */ = {
 			isa = PBXGroup;
 			children = (
+				DB51B0BD1FA2F80900CCC02E /* Util */,
 				DB55F7151F9F08DB00606A4C /* Multiplayer */,
 				DB55F7091F9B13AA00606A4C /* Components */,
 				DB55F7061F9B137600606A4C /* Entities */,
@@ -206,6 +217,7 @@
 				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
 				DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */,
 				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
+				DB51B0BF1FA2F81500CCC02E /* Mutex.swift in Sources */,
 				DBFAE2C41F945078009AE74A /* Constants.swift in Sources */,
 				DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */,
 				DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */,

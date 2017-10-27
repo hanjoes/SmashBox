@@ -14,4 +14,5 @@ struct Constants {
     // MARK: - Multiplayer
     
     static let ServiceName = "smashb-hanjoes"
+    static let InviteTimeout: Double = 5.0
 }
