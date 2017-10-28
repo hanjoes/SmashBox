@@ -2,8 +2,6 @@ import MultipeerConnectivity
 
 class CommunicationCenter: NSObject {
     
-    let mutex = Mutex()
-    
     let myPeerID = MCPeerID(displayName: "\(UIDevice.current.name)_smashbox")
     
     let browser: MCNearbyServiceBrowser
@@ -21,13 +19,11 @@ class CommunicationCenter: NSObject {
     }
     
     func start() {
-        print("searching with peerId: \(myPeerID)")
         browser.startBrowsingForPeers()
         advertiser.startAdvertisingPeer()
     }
     
     deinit {
-        print("deiniting")
         browser.stopBrowsingForPeers()
         advertiser.stopAdvertisingPeer()
     }
@@ -36,50 +32,34 @@ class CommunicationCenter: NSObject {
 
 extension CommunicationCenter: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        print("peer \(peerID) disconnected")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        print("cannot start browsing because of error: \(error)")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        mutex.synchronized {
-            print("found peer: \(peerID)")
-            guard peers[peerID.displayName] == nil else {
-                return
-            }
-            
-            print("inviting peer: \(peerID)")
-            let newSession = MCSession(peer: myPeerID)
-            newSession.delegate = self
-            browser.invitePeer(peerID, to: newSession, withContext: nil, timeout: Constants.InviteTimeout)
-            peers[peerID.displayName] = newSession
-            print(peers)
+        // Having weird disconnected issue when we send out AND accept invitation for the same peerID.
+        // This check is here so we can only send out OR accept invitation, not both.
+        guard myPeerID.displayName.hash > peerID.displayName.hash else {
+            return
         }
+        
+        let newSession = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
+        newSession.delegate = self
+        browser.invitePeer(peerID, to: newSession, withContext: nil, timeout: Constants.InviteTimeout)
+        peers[peerID.displayName] = newSession
     }
 }
 
 extension CommunicationCenter: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        print("cannot start advertizing peer because of error: \(error)")
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        mutex.synchronized {
-            print("received invitation from peer: \(peerID)")
-            guard peers[peerID.displayName] == nil else {
-                invitationHandler(false, nil)
-                return
-            }
-            
-            let newSession = MCSession(peer: myPeerID)
+            let newSession = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
             newSession.delegate = self
             invitationHandler(true, newSession)
             peers[peerID.displayName] = newSession
-            print("\(myPeerID) accepted invitation")
-            print(peers)
-        }
     }
 }
 
