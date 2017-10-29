@@ -1,25 +1,23 @@
 import GameplayKit
 import SceneKit
 
-class UserGestureComponent: UserInteractionComponent {
-
-    /// Initialize gestures.
-    ///
-    /// - Note: Ideally, we should use `didAddToEntity` to do this
-    /// initialization, but the callback is only available after
-    /// __iOS 10.0__.
-    func initializeGestures() {
-        guard let entity = entity as? GameEntity else {
-            return
-        }
-        
-        let sceneView = entity.sceneView
+class UserGestureControllerComponent: GKComponent, Controller {
+    func possess() {
+        let sceneView = playerEntity.sceneView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         sceneView.addGestureRecognizer(tapGesture)
     }
 }
 
-extension UserInteractionComponent {
+extension UserGestureControllerComponent {
+    
+    var playerEntity: PlayerEntity {
+        return entity as! PlayerEntity
+    }
+    
+    var scnNodeComponent: SCNNodeComponent {
+        return playerEntity.sceneNodeComponent
+    }
 
     @objc
     func handleTap(_ gestureRecognized: UIGestureRecognizer) {
@@ -44,6 +42,12 @@ extension UserInteractionComponent {
             
             let translationHorizontal = SCNVector3(x: translation.x, y: 0, z: translation.z)
             player.physicsBody?.applyForce(translationHorizontal, asImpulse: true)
+            
+            do {
+                try playerEntity.publish(force: translationHorizontal)
+            } catch  {
+                print("\(#function) publishing failed")
+            }
         default: break
         }
     }

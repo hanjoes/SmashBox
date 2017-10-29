@@ -5,19 +5,20 @@ import SceneKit
 
 class SmashBoxArenaViewController: UIViewController {
     
-    var players = [PlayerEntity]()
-    
     var communicationCenter: CommunicationCenter!
+    
+    var entityManager = EntityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        communicationCenter = CommunicationCenter()
+        communicationCenter = CommunicationCenter(entityManager: entityManager)
         communicationCenter.start()
         
         initializeScene()
         spawnPlayer()
         takeControl(ofPlayer: 0)
+        spawnPlayer()
     }
     
     override var shouldAutorotate: Bool {
@@ -51,6 +52,10 @@ private extension SmashBoxArenaViewController {
     
     var scene: SCNScene! {
         return sceneView.scene
+    }
+    
+    var players: [PlayerEntity] {
+        return entityManager.players
     }
     
     var spawnPoints: [SCNNode] {
@@ -95,7 +100,7 @@ private extension SmashBoxArenaViewController {
         
         let scnNodeComponent = SCNNodeComponent(withNode: player)
         let playerEntity = PlayerEntity(components: [scnNodeComponent], sceneView: sceneView)
-        players.append(playerEntity)
+        entityManager.players.append(playerEntity)
     }
     
     func takeControl(ofPlayer index: Int) {
@@ -104,9 +109,12 @@ private extension SmashBoxArenaViewController {
         }
         
         let player = players[index]
-        let userGestureComponent = UserGestureComponent(scnNodeComponent: player.sceneNodeComponent)
+        let userGestureComponent = UserGestureControllerComponent()
         player.addComponent(userGestureComponent)
-        userGestureComponent.initializeGestures()
+        userGestureComponent.possess()
+        
+        let networkComponent = NetworkControllerComponent(communicationCenter: communicationCenter)
+        player.addComponent(networkComponent)
     }
 }
 

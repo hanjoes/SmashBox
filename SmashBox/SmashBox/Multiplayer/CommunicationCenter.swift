@@ -1,6 +1,15 @@
 import MultipeerConnectivity
+import SceneKit
+
+
+protocol CommunicationEventDelegate {
+    func handle(peerMessage msg: PeerMessage)
+}
+
 
 class CommunicationCenter: NSObject {
+    
+    typealias CommunicationMetadata = (MCSession, CommunicationEventDelegate?)
     
     let myPeerID = MCPeerID(displayName: "\(UIDevice.current.name)_smashbox")
     
@@ -8,9 +17,16 @@ class CommunicationCenter: NSObject {
     
     let advertiser: MCNearbyServiceAdvertiser
     
-    var peers = [String:MCSession]()
+    let jsonEncoder = JSONEncoder()
     
-    override init() {
+    let jsonDecoder = JSONDecoder()
+    
+    let entityManager: EntityManager
+    
+    var peers = [MCPeerID:CommunicationMetadata]()
+    
+    init(entityManager: EntityManager) {
+        self.entityManager = entityManager
         browser = MCNearbyServiceBrowser(peer: myPeerID, serviceType: Constants.ServiceName)
         advertiser = MCNearbyServiceAdvertiser(peer: myPeerID, discoveryInfo: nil, serviceType: Constants.ServiceName)
         super.init()
@@ -23,9 +39,22 @@ class CommunicationCenter: NSObject {
         advertiser.startAdvertisingPeer()
     }
     
-    deinit {
+    func stop() {
         browser.stopBrowsingForPeers()
         advertiser.stopAdvertisingPeer()
+    }
+    
+    func publish(force vector: SCNVector3) throws {
+        let message = PeerMessage(message: .force(vector))
+        let moveMessage = try jsonEncoder.encode(message)
+        
+        try peers.forEach {
+            try $0.value.0.send(moveMessage, toPeers: [$0.key], with: .reliable)
+        }
+    }
+    
+    deinit {
+        stop()
     }
     
 }
@@ -38,6 +67,9 @@ extension CommunicationCenter: MCNearbyServiceBrowserDelegate {
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+        guard peers[peerID] == nil else {
+            return
+        }
         // Having weird disconnected issue when we send out AND accept invitation for the same peerID.
         // This check is here so we can only send out OR accept invitation, not both.
         guard myPeerID.displayName.hash > peerID.displayName.hash else {
@@ -47,7 +79,7 @@ extension CommunicationCenter: MCNearbyServiceBrowserDelegate {
         let newSession = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
         newSession.delegate = self
         browser.invitePeer(peerID, to: newSession, withContext: nil, timeout: Constants.InviteTimeout)
-        peers[peerID.displayName] = newSession
+        peers[peerID] = (newSession, nil)
     }
 }
 
@@ -55,11 +87,15 @@ extension CommunicationCenter: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
     }
     
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-            let newSession = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
-            newSession.delegate = self
-            invitationHandler(true, newSession)
-            peers[peerID.displayName] = newSession
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser,
+                    didReceiveInvitationFromPeer peerID: MCPeerID,
+                    withContext context: Data?,
+                    invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        let newSession = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
+        newSession.delegate = self
+        invitationHandler(true, newSession)
+        peers[peerID] = (newSession, nil)
+        advertiser.stopAdvertisingPeer()
     }
 }
 
@@ -68,14 +104,34 @@ extension CommunicationCenter: MCSessionDelegate {
         switch state {
         case .connected:
             print("peer: \(peerID) connected")
+            if let unpossessed = entityManager.nextUnpossessedEntity {
+                print("found unpossessed")
+                let nc = NetworkControllerComponent(communicationCenter: self)
+                unpossessed.addComponent(nc)
+                peers[peerID]!.1 = nc
+            }
+            start()
         case .connecting:
             print("peer: \(peerID) connecting")
+            stop()
         case .notConnected:
             print("peer: \(peerID) disconnected")
+            peers.removeValue(forKey: peerID)
+            stop()
+            start()
         }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
+        guard let metadata = peers[peerID] else {
+            return
+        }
+
+        guard let peerMessage = try? jsonDecoder.decode(PeerMessage.self, from: data) else {
+            return
+        }
+
+        metadata.1?.handle(peerMessage: peerMessage)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DB51B0BF1FA2F81500CCC02E /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0BE1FA2F81500CCC02E /* Mutex.swift */; };
+		DB51B0C11FA51E6500CCC02E /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0C01FA51E6500CCC02E /* Controller.swift */; };
+		DB51B0C31FA5221A00CCC02E /* NetworkControllerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0C21FA5221A00CCC02E /* NetworkControllerComponent.swift */; };
+		DB51B0C61FA5834A00CCC02E /* PeerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0C51FA5834A00CCC02E /* PeerMessage.swift */; };
+		DB51B0CE1FA59DBE00CCC02E /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB51B0CD1FA59DBE00CCC02E /* EntityManager.swift */; };
 		DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* PlayerEntity.swift */; };
 		DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */; };
 		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
-		DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */; };
 		DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */; };
 		DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */; };
 		DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2AC1F944756009AE74A /* AppDelegate.swift */; };
@@ -27,10 +30,13 @@
 
 /* Begin PBXFileReference section */
 		DB51B0BE1FA2F81500CCC02E /* Mutex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
+		DB51B0C01FA51E6500CCC02E /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DB51B0C21FA5221A00CCC02E /* NetworkControllerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerComponent.swift; sourceTree = "<group>"; };
+		DB51B0C51FA5834A00CCC02E /* PeerMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerMessage.swift; sourceTree = "<group>"; };
+		DB51B0CD1FA59DBE00CCC02E /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		DB55F7071F9B139100606A4C /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
-		DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractionComponent.swift; sourceTree = "<group>"; };
 		DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGestureComponent.swift; sourceTree = "<group>"; };
 		DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationCenter.swift; sourceTree = "<group>"; };
 		DBFAE2A91F944756009AE74A /* SmashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,11 +71,20 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		DB51B0C41FA5833A00CCC02E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				DB51B0C51FA5834A00CCC02E /* PeerMessage.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		DB55F7061F9B137600606A4C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				DB55F7071F9B139100606A4C /* PlayerEntity.swift */,
 				DB55F70C1F9B149F00606A4C /* GameEntity.swift */,
+				DB51B0CD1FA59DBE00CCC02E /* EntityManager.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -78,8 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */,
-				DB55F70E1F9B15D100606A4C /* UserInteractionComponent.swift */,
+				DB51B0C01FA51E6500CCC02E /* Controller.swift */,
 				DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */,
+				DB51B0C21FA5221A00CCC02E /* NetworkControllerComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -111,6 +127,7 @@
 		DBFAE2AB1F944756009AE74A /* SmashBox */ = {
 			isa = PBXGroup;
 			children = (
+				DB51B0C41FA5833A00CCC02E /* Message */,
 				DB51B0BD1FA2F80900CCC02E /* Util */,
 				DB55F7151F9F08DB00606A4C /* Multiplayer */,
 				DB55F7091F9B13AA00606A4C /* Components */,
@@ -214,12 +231,15 @@
 				DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */,
 				DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */,
 				DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */,
+				DB51B0C11FA51E6500CCC02E /* Controller.swift in Sources */,
 				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
-				DB55F70F1F9B15D100606A4C /* UserInteractionComponent.swift in Sources */,
 				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
 				DB51B0BF1FA2F81500CCC02E /* Mutex.swift in Sources */,
 				DBFAE2C41F945078009AE74A /* Constants.swift in Sources */,
+				DB51B0CE1FA59DBE00CCC02E /* EntityManager.swift in Sources */,
+				DB51B0C31FA5221A00CCC02E /* NetworkControllerComponent.swift in Sources */,
 				DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */,
+				DB51B0C61FA5834A00CCC02E /* PeerMessage.swift in Sources */,
 				DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */,
 				DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */,
 			);
