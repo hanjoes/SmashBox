@@ -1,5 +1,6 @@
 import Foundation
 import GameplayKit
+import MultipeerConnectivity
 
 class NetworkControllerComponent: GKComponent, Controller {
     
@@ -27,10 +28,14 @@ class NetworkControllerComponent: GKComponent, Controller {
 }
 
 extension NetworkControllerComponent: CommunicationEventDelegate {
+    
     func handle(peerMessage msg: PeerMessage) {
-        switch msg.message {
-        case .force(let v):
-            scnNodeComponent.scnNode.physicsBody?.applyForce(v, asImpulse: true)
+        switch msg.messageType {
+        case PeerMessageType.Force:
+            scnNodeComponent.scnNode.physicsBody?.applyForce(msg.force, asImpulse: true)
+        case PeerMessageType.Position:
+            scnNodeComponent.scnNode.position = msg.position
+        default: break
         }
     }
 }

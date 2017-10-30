@@ -15,7 +15,7 @@
 		DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7071F9B139100606A4C /* PlayerEntity.swift */; };
 		DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */; };
 		DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F70C1F9B149F00606A4C /* GameEntity.swift */; };
-		DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */; };
+		DB55F7141F9B1B7300606A4C /* UserGestureControllerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7131F9B1B7300606A4C /* UserGestureControllerComponent.swift */; };
 		DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */; };
 		DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2AC1F944756009AE74A /* AppDelegate.swift */; };
 		DBFAE2AF1F944756009AE74A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2AE1F944756009AE74A /* art.scnassets */; };
@@ -25,7 +25,7 @@
 		DBFAE2B91F944756009AE74A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2B71F944756009AE74A /* LaunchScreen.storyboard */; };
 		DBFAE2C11F944AA7009AE74A /* BattleArea.scn in Resources */ = {isa = PBXBuildFile; fileRef = DBFAE2C01F944AA7009AE74A /* BattleArea.scn */; };
 		DBFAE2C41F945078009AE74A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C31F945078009AE74A /* Constants.swift */; };
-		DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */; };
+		DBFAE2C61F95C634009AE74A /* SCNVectorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFAE2C51F95C634009AE74A /* SCNVectorUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		DB55F7071F9B139100606A4C /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeComponent.swift; sourceTree = "<group>"; };
 		DB55F70C1F9B149F00606A4C /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
-		DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGestureComponent.swift; sourceTree = "<group>"; };
+		DB55F7131F9B1B7300606A4C /* UserGestureControllerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGestureControllerComponent.swift; sourceTree = "<group>"; };
 		DB55F7161F9F08ED00606A4C /* CommunicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationCenter.swift; sourceTree = "<group>"; };
 		DBFAE2A91F944756009AE74A /* SmashBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFAE2AC1F944756009AE74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		DBFAE2BA1F944756009AE74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBFAE2C01F944AA7009AE74A /* BattleArea.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = BattleArea.scn; sourceTree = "<group>"; };
 		DBFAE2C31F945078009AE74A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVectorExtension.swift; sourceTree = "<group>"; };
+		DBFAE2C51F95C634009AE74A /* SCNVectorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVectorUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +66,7 @@
 		DB51B0BD1FA2F80900CCC02E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DBFAE2C51F95C634009AE74A /* SCNVectorUtils.swift */,
 				DB51B0BE1FA2F81500CCC02E /* Mutex.swift */,
 			);
 			path = Util;
@@ -94,7 +95,7 @@
 			children = (
 				DB55F70A1F9B13C200606A4C /* SCNNodeComponent.swift */,
 				DB51B0C01FA51E6500CCC02E /* Controller.swift */,
-				DB55F7131F9B1B7300606A4C /* UserGestureComponent.swift */,
+				DB55F7131F9B1B7300606A4C /* UserGestureControllerComponent.swift */,
 				DB51B0C21FA5221A00CCC02E /* NetworkControllerComponent.swift */,
 			);
 			path = Components;
@@ -134,7 +135,6 @@
 				DB55F7061F9B137600606A4C /* Entities */,
 				DBFAE2AC1F944756009AE74A /* AppDelegate.swift */,
 				DBFAE2C31F945078009AE74A /* Constants.swift */,
-				DBFAE2C51F95C634009AE74A /* SCNVectorExtension.swift */,
 				DBFAE2B01F944756009AE74A /* SmashBoxArenaViewController.swift */,
 				DBFAE2C21F94502E009AE74A /* Supporting Files */,
 			);
@@ -230,7 +230,7 @@
 			files = (
 				DB55F70D1F9B149F00606A4C /* GameEntity.swift in Sources */,
 				DBFAE2B11F944756009AE74A /* SmashBoxArenaViewController.swift in Sources */,
-				DB55F7141F9B1B7300606A4C /* UserGestureComponent.swift in Sources */,
+				DB55F7141F9B1B7300606A4C /* UserGestureControllerComponent.swift in Sources */,
 				DB51B0C11FA51E6500CCC02E /* Controller.swift in Sources */,
 				DBFAE2AD1F944756009AE74A /* AppDelegate.swift in Sources */,
 				DB55F70B1F9B13C200606A4C /* SCNNodeComponent.swift in Sources */,
@@ -241,7 +241,7 @@
 				DB55F7081F9B139100606A4C /* PlayerEntity.swift in Sources */,
 				DB51B0C61FA5834A00CCC02E /* PeerMessage.swift in Sources */,
 				DB55F7171F9F08ED00606A4C /* CommunicationCenter.swift in Sources */,
-				DBFAE2C61F95C634009AE74A /* SCNVectorExtension.swift in Sources */,
+				DBFAE2C61F95C634009AE74A /* SCNVectorUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

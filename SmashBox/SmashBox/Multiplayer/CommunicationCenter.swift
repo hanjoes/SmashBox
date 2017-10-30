@@ -44,8 +44,21 @@ class CommunicationCenter: NSObject {
         advertiser.stopAdvertisingPeer()
     }
     
+    func publish(position vector: SCNVector3) throws {
+        var message = PeerMessage()
+        message.messageType = PeerMessageType.Position
+        message.position = vector
+        let syncMessage = try jsonEncoder.encode(message)
+        
+        try peers.forEach {
+            try $0.value.0.send(syncMessage, toPeers: [$0.key], with: .reliable)
+        }
+    }
+    
     func publish(force vector: SCNVector3) throws {
-        let message = PeerMessage(message: .force(vector))
+        var message = PeerMessage()
+        message.messageType = PeerMessageType.Force
+        message.force = vector
         let moveMessage = try jsonEncoder.encode(message)
         
         try peers.forEach {
@@ -95,6 +108,7 @@ extension CommunicationCenter: MCNearbyServiceAdvertiserDelegate {
         newSession.delegate = self
         invitationHandler(true, newSession)
         peers[peerID] = (newSession, nil)
+        // adding this seems essential for successful connections, not sure why..
         advertiser.stopAdvertisingPeer()
     }
 }
@@ -105,10 +119,15 @@ extension CommunicationCenter: MCSessionDelegate {
         case .connected:
             print("peer: \(peerID) connected")
             if let unpossessed = entityManager.nextUnpossessedEntity {
-                print("found unpossessed")
                 let nc = NetworkControllerComponent(communicationCenter: self)
                 unpossessed.addComponent(nc)
                 peers[peerID]!.1 = nc
+                
+                // sync local position to remote
+                let user = entityManager.userEntity!
+                let scnNodeComp = user.sceneNodeComponent
+                let scnNode = scnNodeComp!.scnNode
+                try! publish(position: scnNode.presentation.position)
             }
             start()
         case .connecting:

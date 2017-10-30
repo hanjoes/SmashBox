@@ -9,6 +9,10 @@ class PlayerEntity: GameEntity {
         return component(ofType: NetworkControllerComponent.self)
     }
     
+    var userGestureComponent: UserGestureControllerComponent? {
+        return component(ofType: UserGestureControllerComponent.self)
+    }
+    
     func publish(force vector: SCNVector3) throws {
         guard let networkComponent = networkComponent else {
             return
